@@ -29,12 +29,13 @@ export function LandingBackground() {
           waveSpeed={0.05}
           waveFrequency={3}
           waveAmplitude={0.3}
-          mouseEffect="erase"
-          mouseRadius={0.3}
+          mouseEffect="ripple"
+          mouseRadius={0.4}
+          mouseStrength={1.4}
           disableAnimation={paused || reducedMotion}
           enableMouseInteraction={!paused && !reducedMotion}
           clickRipple={!paused && !reducedMotion}
-          intro={false}
+          intro={!paused && !reducedMotion}
         />
       </div>
       {!reducedMotion && (
