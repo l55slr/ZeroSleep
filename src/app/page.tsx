@@ -1,23 +1,43 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import type { Metadata, Viewport } from "next";
+import { LandingBackground } from "./landing-background";
+import { WaitlistForm } from "./waitlist-form";
+import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "ZeroSleep — Your work. One link.",
+  description: "Your GitHub, npm, LeetCode and projects, together in one developer profile. Join the ZeroSleep waitlist to hear when we launch.",
+  openGraph: {
+    title: "ZeroSleep — Your work. One link.",
+    description: "Everything you build, in one developer profile. Join the waitlist.",
+    type: "website",
+  },
+  twitter: { card: "summary" },
+};
+
+export const viewport: Viewport = { themeColor: "#ffffff", colorScheme: "light" };
 
 export default function Home() {
   return (
-    <main className="flex flex-1 items-center justify-center px-6">
-      <div className="w-full max-w-sm">
-        <h1 className="text-3xl font-semibold tracking-tight">ZeroSleep</h1>
-        <p className="mt-3 text-sm leading-relaxed text-muted">
-          One page for everything you build. Your GitHub, npm, LeetCode, and
-          projects — one link.
+    <div className={styles.page}>
+      <header className={styles.header}>
+        <span className={styles.brand}>zerosleep</span>
+        <span className={styles.headerLabel}>Coming soon</span>
+      </header>
+      <main className={styles.main}>
+        <p className={styles.eyebrow}>A home for developers</p>
+        <h1 className={styles.heading}>
+          <span>Your work.</span>
+          <span>One link.</span>
+        </h1>
+        <p className={styles.description}>
+          Your GitHub, npm, LeetCode and projects — together in one developer profile.
         </p>
-        <Link
-          href="/login"
-          className="mt-8 inline-flex items-center gap-1.5 rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90"
-        >
-          Get started
-          <ArrowUpRight className="size-4" aria-hidden />
-        </Link>
-      </div>
-    </main>
+        <WaitlistForm />
+      </main>
+      <footer className={styles.footer}>
+        <span>© 2026 ZeroSleep</span>
+      </footer>
+      <LandingBackground />
+    </div>
   );
 }

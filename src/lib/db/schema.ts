@@ -83,3 +83,19 @@ export const dailyStats = pgTable(
 export const reservedHandles = pgTable("reserved_handles", {
   handle: text("handle").primaryKey(),
 });
+
+// Server-only tables: no public API policies. The server connects as the table owner.
+export const waitlistSignups = pgTable("waitlist_signups", {
+  email: text("email").primaryKey(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+}).enableRLS();
+
+export const waitlistRateLimits = pgTable(
+  "waitlist_rate_limits",
+  {
+    key: text("key").primaryKey(),
+    attempts: integer("attempts").notNull().default(1),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+  },
+  (t) => [index("waitlist_rate_limits_expiry_idx").on(t.expiresAt)],
+).enableRLS();

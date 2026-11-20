@@ -20,9 +20,7 @@ export function getDb() {
       max: 5,
     });
 
-  if (process.env.NODE_ENV !== "production") {
-    globalForDb.pgClient = client;
-  }
+  globalForDb.pgClient = client;
 
   return drizzle(client, { schema, casing: "snake_case" });
 }
