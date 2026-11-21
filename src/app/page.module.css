@@ -215,13 +215,19 @@
   font-size: 11px;
 }
 
+.footerMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  margin-right: -14px;
+  margin-left: -14px;
   border-radius: 6px;
   color: var(--page-edge);
   transition: color 150ms ease;
