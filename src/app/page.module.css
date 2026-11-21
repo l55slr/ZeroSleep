@@ -159,7 +159,7 @@
 .joinButton:not(:disabled):active { transform: translateY(1px); }
 .joinButton:disabled { cursor: wait; opacity: 0.7; }
 
-.email:focus-visible, .joinButton:focus-visible, .motionButton:focus-visible {
+.email:focus-visible, .joinButton:focus-visible, .motionButton:focus-visible, .social:focus-visible {
   outline: 2px solid var(--page-foreground);
   outline-offset: 3px;
 }
@@ -214,6 +214,22 @@
   font-family: var(--font-geist-mono), monospace;
   font-size: 11px;
 }
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -14px;
+  border-radius: 6px;
+  color: var(--page-edge);
+  transition: color 150ms ease;
+}
+
+.social:hover { color: var(--page-foreground); }
+
+.socialIcon { width: 16px; height: 16px; }
 
 .motionButton {
   position: absolute;
